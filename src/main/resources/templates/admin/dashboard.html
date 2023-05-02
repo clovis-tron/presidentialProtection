@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+          integrity="sha512-40Gk+X9t9zBtqlMhdaxJFr6UJ/fLwluv6UHrqe8YXsBlDxKKKs/rAZ3q4W8sDC1uLQVw0v/buM7Vsq90XjXbGg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Add animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Add Presidential CSS -->
+    <style>
+        body {
+            background-image: url("/images/confere.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-size: 20px;
+        }
+
+        thead tr{
+            color: white;
+        }
+
+        tbody td {
+            color: white;
+        }
+
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #337ab7;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+
+        .container-fluid {
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-danger {
+            border-color: red;
+        }
+
+        .card-header h1 {
+            font-weight: bold;
+            color: red;
+        }
+
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .animate__bounceIn {
+            animation-name: bounceIn;
+        }
+
+        .animate__pulse {
+            animation-name: pulse;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="my-4">Welcome to Admin Dashboard</h2>
+    <p>Logged as: <span sec:authentication="name"></span></p>
+    <p>Has role: <span sec:authentication="authorities"></span></p>
+</div>
+    <div class="my-4">
+        <form th:action="@{/}" method="get">
+            <p><button class="btn btn-danger animate__animated animate__bounceIn">Home</button></p>
+        </form>
+        <form th:action="@{/logout}" method="get">
+            <p><button class="btn btn-danger animate__animated animate__bounceIn">Log out</button></p>
+        </form>
+        <form th:action="@{/view}" method="get">
+            <button class="btn btn-danger animate__animated animate__pulse" >View Scheduled meeting</button>
+        </form><br>
+
+        <form th:action="@{/meetings}" method="get">
+            <button class="btn btn-danger animate__animated animate__pulse" >Confirm Or Deny Scheduler</button>
+        </form>
+    </div>
+<!-- Add Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"
+        integrity="sha512-C6K4U6L0xW4/E/n6dA1X9Ady2vS8WnUwG6cSX+6U4v6xWr4NnEZdrlKK+9XSKk/l/8S/kW+SnDQbROfBwhT+TQ=="
+        crossorigin="anonymous" referrerpolicy="
+no-referrer"></script>
+
+</body>
+</html>

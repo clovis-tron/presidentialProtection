@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Schedule Presidential Meeting</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url("/images/press.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+
+        button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #337ab7;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="date"],
+        input[type="time"],
+        textarea {
+            border: none;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<form th:action="@{/saveMeeting}" th:object="${presidentialMeeting}" method="post" enctype="multipart/form-data" style="background-color: rgba(0,0,0,0.5);">
+    <h3>Schedule Presidential Meeting</h3>
+    <p>Date: <input type="date" th:field="*{date}" /></p>
+    <p>Start Time: <input type="time" th:field="*{startTime}" /></p>
+    <p>End Time: <input type="time" th:field="*{endTime}" /></p>
+    <p>Agenda: <textarea rows="5" th:field="*{agenda}"></textarea></p>
+    <p>Reporter Name: <input type="text" th:field="*{reporterName}" /></p>
+    <p>Reporter Profile Image: <input type="file" name="file"/></p>
+    <p>Reporter Email: <input type="email" th:field="*{email}" /></p>
+    <p>PDF File: <label for="pdfFile">Choose a file</label> <input type="file" id="pdfFile" name="pdfFile" accept="application/pdf" /></p>
+
+    <button type="submit">Schedule</button>
+
+
+
+
+</form>
+
+<form th:action="@{/view}" method="get">
+    <button class="cancel-btn">Cancel</button>
+</form>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
