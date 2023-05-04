@@ -57,7 +57,7 @@ public class PresidentialMeetingController {
     public String showMeetings(Model model) {
         List<PresidentialMeeting> meetings = presidentialMeetingRepository.findAll();
         model.addAttribute("meetings", meetings);
-        return "admin/meeting-request";
+        return "view-meeting";
     }
 
     @PostMapping("/sendEmail")
