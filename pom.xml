@@ -120,7 +120,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
+				  <configuration>
+        <target>8</target> <!-- change this to the Java version that Heroku supports -->
+        <source>8</source> <!-- change this to the Java version that Heroku supports -->
+      </configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 </project>
