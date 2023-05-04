@@ -49,7 +49,7 @@ public class PresidentialMeetingController {
         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
         model.addAttribute("meeting", meeting);
         System.out.println("records: " + meeting);
-        return "/view-meeting";
+        return "/access-denied";
     }
 
 
