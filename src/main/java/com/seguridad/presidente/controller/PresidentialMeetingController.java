@@ -44,23 +44,24 @@ public class PresidentialMeetingController {
 
 
 
-//     @RequestMapping(value = {"/show"}, method = RequestMethod.GET)
-//     public String showMeetingList(Model model) {
-//         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
-//         model.addAttribute("meeting", meeting);
-//         System.out.println("records: " + meeting);
-//         return "/access-denied";
-//     }
+//    @RequestMapping(value = {"/view"}, method = RequestMethod.GET)
+//    public String showMeetingList(Model model) {
+//        List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
+//        model.addAttribute("meeting", meeting);
+//        System.out.println("records: " + meeting);
+//        return "/view-meeting";
+//    }
 
-
-   @GetMapping("/meetings")
+    
+    @GetMapping("/view")
     public String showMeetingList(Model model) {
     	 List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
         model.addAttribute("meetings", meeting);
-        return "admin/meeting-request";
+        return "view-meeting";
     }
-    
-     @GetMapping("/meetings")
+ 
+
+    @GetMapping("/meetings")
     public String showMeetings(Model model) {
         List<PresidentialMeeting> meetings = presidentialMeetingRepository.findAll();
         model.addAttribute("meetings", meetings);
@@ -126,7 +127,7 @@ public class PresidentialMeetingController {
         presidentialMeetingService.saveMeeting(presidentialMeeting);
 
         // send an email to the admin with the meeting details
-        String recipientAddress = "niyonsenga.clovis@gmail.com";
+        String recipientAddress = "gmail.com";
         String subject = "New meeting request";
         String message = String.format("Date: %s\nStart time: %s %s\nEnd time: %s %s\nAgenda: %s\nName: %s",
                 presidentialMeeting.getDate(),
@@ -164,8 +165,7 @@ public class PresidentialMeetingController {
     }
 
 
-  
-    @GetMapping("/image/{id")
+
     @RequestMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
