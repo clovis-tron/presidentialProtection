@@ -44,7 +44,7 @@ public class PresidentialMeetingController {
 
 
 
-    @RequestMapping(value = {"/view"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/show"}, method = RequestMethod.GET)
     public String showMeetingList(Model model) {
         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
         model.addAttribute("meeting", meeting);
