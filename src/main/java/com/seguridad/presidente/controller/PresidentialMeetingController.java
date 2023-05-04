@@ -56,7 +56,7 @@ public class PresidentialMeetingController {
     @GetMapping("/view")
     public String showMeetingList(Model model) {
     	 List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
-        model.addAttribute("meetings", meeting);
+        model.addAttribute("meeting", meeting);
         return "view-meeting";
     }
  
