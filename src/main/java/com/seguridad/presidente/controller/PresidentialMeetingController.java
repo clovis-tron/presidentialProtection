@@ -44,20 +44,27 @@ public class PresidentialMeetingController {
 
 
 
-    @RequestMapping(value = {"/show"}, method = RequestMethod.GET)
-    public String showMeetingList(Model model) {
-        List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
-        model.addAttribute("meeting", meeting);
-        System.out.println("records: " + meeting);
-        return "/access-denied";
-    }
+//     @RequestMapping(value = {"/show"}, method = RequestMethod.GET)
+//     public String showMeetingList(Model model) {
+//         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
+//         model.addAttribute("meeting", meeting);
+//         System.out.println("records: " + meeting);
+//         return "/access-denied";
+//     }
 
 
-    @GetMapping("/meetings")
+    @GetMapping("/view")
     public String showMeetings(Model model) {
         List<PresidentialMeeting> meetings = presidentialMeetingRepository.findAll();
         model.addAttribute("meetings", meetings);
         return "view-meeting";
+    }
+    
+     @GetMapping("/meetings")
+    public String showMeetings(Model model) {
+        List<PresidentialMeeting> meetings = presidentialMeetingRepository.findAll();
+        model.addAttribute("meetings", meetings);
+        return "admin/meeting-request";
     }
 
     @PostMapping("/sendEmail")
