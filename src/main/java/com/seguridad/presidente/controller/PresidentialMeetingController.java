@@ -53,11 +53,11 @@ public class PresidentialMeetingController {
 //     }
 
 
-    @GetMapping("/view")
+   @GetMapping("/meetings")
     public String showMeetingList(Model model) {
-         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
-        model.addAttribute("meetings", meetings);
-        return "view-meeting";
+    	 List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
+        model.addAttribute("meetings", meeting);
+        return "admin/meeting-request";
     }
     
      @GetMapping("/meetings")
