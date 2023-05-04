@@ -55,7 +55,7 @@ public class PresidentialMeetingController {
 
     @GetMapping("/view")
     public String showMeetingList(Model model) {
-        List<PresidentialMeeting> meetings = presidentialMeetingRepository.findAll();
+         List<PresidentialMeeting> meeting = presidentialMeetingService.listAll();
         model.addAttribute("meetings", meetings);
         return "view-meeting";
     }
@@ -164,7 +164,8 @@ public class PresidentialMeetingController {
     }
 
 
-
+  
+    @GetMapping("/image/{id")
     @RequestMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     @ResponseBody
     public ResponseEntity<byte[]> getImage(@PathVariable("id") Long id) {
