@@ -1,21 +1,79 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Homepage</title>
-    <!-- Link to Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <!-- Link to custom CSS -->
-    <link rel="stylesheet" href="/css/presidential.css">
+    <title>Presidential Politician</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <script type="text/javascript" src="js/jquery-1.4.2.js" ></script>
+  
+    <script type="text/javascript" src="js/ie6_script_other.js"></script>
+    <script type="text/javascript" src="js/html5.js"></script>
+   
+
     <style>
 
-        body {
-            background-image: url("/images/confere.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: darkblue;
-            font-size: 20px;
+        article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {
+            display:block;
         }
-
+        mark, rp, rt, ruby, summary, time {
+            display:inline;
+        }
+        .left {
+            float:left;
+        }
+        .right {
+            float:right;
+        }
+        .wrapper {
+            width:100%;
+            overflow:hidden;
+        }
+        body {
+            background:#16316b;
+            border:0;
+            font:12px Arial, Helvetica, sans-serif;
+            color:#b8bfcb;
+            line-height:18px;
+        }
+        .inner_copy, .inner_copy a {
+            border:0;
+            float:right;
+            background:#fff;
+            color:#f00;
+            width:50%;
+            line-height:10px;
+            font-size:10px;
+            margin:-220% 0 0 0;
+            overflow:hidden;
+            padding:0;
+        }
+        .css3 {
+            border-radius:8px;
+            -moz-border-radius:8px;
+            -webkit-border-radius:8px;
+            box-shadow:0 0 4px rgba(0, 0, 0, .4);
+            -moz-box-shadow:0 0 4px rgba(0, 0, 0, .4);
+            -webkit-box-shadow:0 0 4px rgba(0, 0, 0, .4);
+            behavior:url(/js/PIE.htc);
+            position:relative;
+        }
+        .main {
+            margin:0 auto;
+            width:952px;
+            position:relative;
+        }
+        .body1 {
+            background:url(/images/bg_img2.png) no-repeat;
+            width:262px;
+            height:397px;
+            position:absolute;
+            top:0;
+            right:6px;
+            z-index:2;
+        }
 
         button {
             display: inline-block;
@@ -35,99 +93,477 @@
         button:hover {
             background-color: darkred;
         }
-
-
-        /* USA Presidential Colors */
-        :root {
-            --primary: #06174c;
-            --secondary: #ffffff;
-            --success: #3b8f39;
-            --info: #2d99c9;
-            --warning: #f0a030;
-            --danger: #d2222d;
+        .body2 {
+            background:url(/images/bg_cont.jpg) bottom repeat-x #1b3b7b;
         }
+        .body3 {
+            background:url(/images/bg_flag.png) center 70px no-repeat;
+        }
+        .body4 {
+            background:url(/images/bg_top.png) top repeat-x;
+        }
+        .body7 {
+            background:url(/images/bg_bot.jpg) bottom center no-repeat;
+        }
+        a {
+            color:#fff;
+            text-decoration:underline;
+            outline:none;
+        }
+        a:hover {
+            text-decoration:none;
+        }
+        h1 {
+            padding:36px 0 0 22px;
+        }
+        h2 {
+            font:28px "Times New Roman", Times, serif;
+            color:#fff;
+            line-height:36px;
+            padding:3px 0 14px 0;
+            letter-spacing:-1px;
+        }
+        p {
+            padding-bottom:18px;
+        }
+        header {
+            width:100%;
+            overflow:hidden;
+            height:214px;
+            padding:0 6px;
+        }
+        header h1, #page1 header h1 {
+            margin:56px 0 0 57px;
+            padding:0;
+        }
+        header h1 a#logo {
+            text-decoration:none;
+            font:46px "Times New Roman", Times, serif;
+            margin:0;
+            padding:10px 0 0 0;
+        }
+        header nav {
+            width:100%;
+            overflow:hidden;
+            position:relative;
+            z-index:3;
+        }
+        #menu {
+            float:left;
+            padding-left:2px;
+            background:url(/images/menu_line.jpg) 0 0 no-repeat;
+        }
+        #menu li {
+            float:left;
+            background:url(/images/menu_line.jpg) right top no-repeat;
+            padding-right:2px;
+        }
+        #menu li a {
+            display:block;
+            width:138px;
+            font:20px "Times New Roman", Times, serif;
+            line-height:78px;
+            text-decoration:none;
+            text-align:center;
+        }
+        #menu li a:hover, #menu #menu_active a {
+            background:url(/images/menu_active.jpg) top repeat-x;
+        }
+        #content {
+            width:100%;
+            overflow:hidden;
+            padding-bottom:42px;
+        }
+        .box_shadow {
+            margin:6px 6px 30px 6px;
+        }
+        .box {
+            background:#f5f6fc;
+            border-radius:20px;
+            -moz-border-radius:20px;
+            -webkit-border-radius:20px;
+            box-shadow:0 0 6px rgba(0, 0, 0, .7);
+            -moz-box-shadow:0 0 6px rgba(0, 0, 0, .7);
+            -webkit-box-shadow:0 0 6px rgba(0, 0, 0, .7);
+            behavior:url(/js/PIE.htc);
+            position:relative;
+            padding:28px 43px 23px 47px;
+            color:#000;
+        }
+        .box h2 {
+            color:#9a0822;
+        }
+        .box .font1 {
+            color:#000;
+        }
+        .box a {
+            color:#9a0822;
+        }
+        .box .line1 {
+            background:url(/images/line_ver2.gif) 269px 0 repeat-y;
+        }
+        .box .line2 {
+            background:url(/images/line_ver2.gif) 572px 0 repeat-y;
+        }
+        .box .list1 li a {
+            background:url(/images/marker_2.gif) 0 0 no-repeat;
+        }
+        .pad_right {
+            padding-right:230px;
+        }
+        .marg_right1 {
+            margin-right:20px;
+        }
+        .pad_bot1 {
+            padding-bottom:18px;
+        }
+        .pad_left1 {
+            padding-left:60px;
+        }
+        .pad_left2 {
+            padding-left:53px;
+        }
+        .pad_left3 {
+            padding-left:70px;
+        }
+        .font1 {
+            color:#fff;
+            font-weight:bold;
+            padding-bottom:6px;
+        }
+        .line1 {
+            background:url(/images/line_ver1.gif) 565px 0 repeat-y;
+        }
+        .line2 {
+            background:url(/images/line_ver1.gif) 395px 0 repeat-y;
+        }
+        .line3 {
+            background:url(/images/line_ver1.gif) 288px 0 repeat-y;
+        }
+        .list1 li {
+            line-height:20px;
+        }
+        .list1 li a {
+            padding-left:20px;
+            background:url(/images/marker_1.gif) 0 0px no-repeat;
+        }
+        #ContactForm {
+            line-height:21px;
+        }
+        #ContactForm a {
+            margin-left:22px;
+            margin-right:7px;
+            float:right;
+            font-weight:bold;
+        }
+        #ContactForm .input {
+            float:right;
+            width:304px;
+            height:15px;
+            border:1px solid #dcdde2;
+            background:#fff;
+            padding:2px 5px;
+            margin-bottom:9px;
+            color:#000;
+            font:12px Arial, Helvetica, sans-serif;
+            margin-right:436px;
+        }
+        #ContactForm textarea {
+            overflow:auto;
+            margin-right:7px;
+            float:right;
+            width:733px;
+            height:136px;
+            border:1px solid #dcdde2;
+            background:#fff;
+            padding:2px 5px;
+            margin-bottom:9px;
+            color:#000;
+            font:12px Arial, Helvetica, sans-serif;
+        }
+        footer {
+            background:url(/images/bg_footer_repeat.gif) top repeat-x;
+        }
+        .footerlink {
+            position:relative;
+            margin:0 auto;
+            width:952px;
+            height:38px;
+            padding:26px 0 0 0;
+            color:#c1c8d3;
+            background:url(/images/bg_footer.jpg) top center no-repeat blue;
+        }
+        .footerlink p {
+            margin:0;
+            padding:0;
+            line-height:normal;
+            white-space:nowrap;
+            text-indent:inherit;
+            color:#c1c8d3;
+        }
+        .footerlink a {
+            color:#c1c8d3;
+            font-weight:normal;
+            margin:0;
+            padding:0;
+            border:none;
+            text-decoration:underline;
+            background-color:transparent;
+        }
+        .footerlink a:hover {
+            color:#c1c8d3;
+            background-color:transparent;
+            text-decoration:none;
+        }
+        .footerlink .lf {
+            float:left;
+            margin-left:55px;
+        }
+        .footerlink .rf {
+            float:right;
+            margin-right:55px;
+        }
+        a {
+            outline:none;
+        }
+        .col1, .col2, .col3, .cols {
+            float:left;
+        }
+        .cols {
+            width:243px;
+        }
+        .col1 {
+            width:475px;
+        }
+        .col2 {
+            width:305px;
+        }
+        #page1 h1 {
+            padding:56px 0 0 22px;
+        }
+        #page1 header {
+            height:254px;
+        }
+        #page1 .body1 {
+            background:url(/images/bg_img.png) no-repeat;
+            width:308px;
+            height:492px;
+        }
+        #page1 .pad_right {
+            padding-right:270px;
+        }
+        #page3 .col1 {
+            width:845px;
+        }
+        #page4 .col1 {
+            width:845px;
+        }
+        #page5 .cols {
+            width:70px;
+        }
+        #page5 .col2 {
+            width:200px;
+        }
+        #page5 .col1 {
+            width:565px;
+        }
+        a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt, u, ul, var {
+            background:transparent;
+            border:0 none;
+            font-size:100%;
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            vertical-align:top;
+        }
+        ol, ul {
+            list-style:none;
+        }
+        blockquote, q {
+            quotes:none;
+        }
+        table, table td {
+            padding:0;
+            border:none;
+            border-collapse:collapse;
+        }
+        img {
+            vertical-align:top;
+        }
+        embed {
+            vertical-align:top;
+        }
+        * {
+            border:none;
+        }
+
+
     </style>
+
+
+
 </head>
-<body>
-<!-- Navigation bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Presidential Press Conference</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/showNewMeetingForm}">Schedule a Press Conference</a>
-                </li>
-            </ul>
+<body id="page1">
+
+<div class="body2">
+    <div class="body7">
+        <div class="body3">
+            <div class="body4">
+                <div class="main">
+                    <div class="body1"></div>
+                    <header>
+                        <nav>
+                            <ul id="menu">
+                                <li id="menu_active"><a href="index.html">Home</a></li>
+                                <li><a th:href="@{/showNewMeetingForm}">Press</a></li>
+                                <li><a th:href="@{|/login|}" th:text="'Log in'"></a></li>
+                                <li><a th:href="@{|/register|}"th:text="'Register'"></a></li>
+                             <br><br> <div sec:authorize="isAuthenticated()"><br>
+                                <p sec:authorize="isAuthenticated()">authenticated users only.</p>
+                                  <p class="text-white" style="color: red; font-weight: bolder" >Logged in as: <span sec:authentication="name"></span></p>
+                                    <p class="text-white" style="color: red;font-weight: bolder"  >Has role: <span sec:authentication="authorities"></span></p>
+
+
+                                <form th:action="@{|/dashboard|}" method="get">
+                                        <p sec:authorize="hasAuthority('USER')"><button
+                                                th:text="'User Dashboard'"></button></p>
+
+                                    </form>
+
+                                    <form th:action="@{|/admin/dashboard|}" method="get">
+                                        <p sec:authorize="hasAuthority('ADMIN')"><button
+                                                th:text="'Admin Dashboard'"></button></p>
+                                    </form>
+
+                                    <form th:action="@{/logout}" method="get">
+                                        <button  >Log out</button>
+                                    </form>
+                                </div>
+
+
+                            </ul>
+                        </nav>
+                          </header>
+                    <section id="content">
+                        <div class="wrapper">
+                            <div class="box_shadow">
+                                <div class="box">
+                                    <div class="wrapper">
+                                        <div class="pad_right">
+                                            <h2>Main Principle - Stability in the Future!</h2>
+                                            <div class="wrapper pad_bot1">
+                                                <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
+                                                <p sec:authorize="hasRole('ROLE_ANONYMOUS')"><br>!!!Login or Create Account In Order to schedule press conference with the president of the United States of America.</p>     </div>
+                                        </div>
+                                        <h2>Our Latest News</h2>
+                                        <div class="wrapper">
+                                            <article class="cols">
+                                                <figure><img src="images/page1_img2.jpg" alt="" class="pad_bot1"></figure>
+                                                <p class="font1">Dear fellow citizens,</p>
+                                                <p>Today, I want to talk to you about the topic of wealth. This is a subject that is often discussed, but one that we should take a closer look at. Wealth, in its many forms, can bring a great deal of good to our society, but it can also have its pitfalls.</p>
+                                            </article>
+                                            <article class="cols pad_left1">
+                                                <figure><img src="images/page1_img3.jpg" alt="" class="pad_bot1"></figure>
+                                                <p class="font1">I want to emphasize the vital role that banks play in our economy and our society.</p>
+                                                <p>They are not just financial institutions, but also pillars of our communities, supporting families and businesses and contributing to the growth and development of our cities and towns. Let us work together to ensure that banks continue to serve the public interest and contribute to the prosperity of our nation. Thank you.</p>
+                                            </article>
+                                            <article class="cols pad_left1">
+                                                <figure><img src="images/page1_img4.jpg" alt="" class="pad_bot1"></figure>
+                                                <p class="font1"> wealth is a complex and multifaceted topic,</p>
+                                                <p>We must work towards a society in which wealth is used for the greater good, and in which everyone has the opportunity to succeed. Let us work together towards this goal, and create a society that is fair, just, and equitable for all. Thank you.</p>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper line1">
+                            <article class="col1 pad_left2">
+                                <h2>Overall Fundraising Leaders</h2>
+                                <div class="wrapper pad_bot1">
+                                    <figure class="left marg_right1"><img src="images/page1_img5.jpg" alt=""></figure>
+                                    <p class="font1">Jason Lorren</p>
+                                    <p>The role of banks in our society cannot be overstated. They serve as intermediaries between savers and borrowers, providing a safe and secure place for people to deposit their money, while also making loans to individuals and businesses to help them achieve their goals. Banks also provide critical financial services such as credit cards, mortgages, and insurance, which allow people to make important purchases and investments that would otherwise be impossible.</p>
+                                </div>
+                                <div class="wrapper pad_bot1">
+                                    <figure class="left marg_right1"><img src="images/page1_img6.jpg" alt=""></figure>
+                                    <p class="font1">Leonard Betts</p>
+                                    <p>banks are more than just financial institutions. They are pillars of our communities, providing support and funding for local businesses and charities, and contributing to the economic development of our cities and towns. Banks employ thousands of people, from tellers and customer service representatives to loan officers and financial analysts, creating jobs and supporting families.</p>
+                                </div>
+                                <div class="wrapper">
+                                    <figure class="left marg_right1"><img src="/images/elon.jpg" alt=""></figure>
+                                    <p class="font1">Elon Musk</p>
+                                    <p>the recent scandals involving some banks have eroded the public's trust in the banking system. Misconduct, fraud, and abuse of power have tarnished the reputation of the industry, and many people feel that banks are no longer serving their best interests.</p>
+                                </div>
+                            </article>
+                            <article class="col2 pad_left3">
+                                <h1>State Results: The Latest Numbers from Across the Country</h1>
+                                <p>The election season is in full swing, and voters across the United States are heading to the polls to cast their ballots. With so much at stake, it's important to stay up-to-date on the latest results from each state.</p>
+                                <h2>State-by-State Breakdown</h2>
+                                <p>Here's a look at the latest results from each state:</p>
+                                <h3>Alabama</h3>
+                                <p>With 98% of precincts reporting:</p>
+                                <ul>
+                                    <li>Donald Trump: 62%</li>
+                                    <li>Joe Biden: 38%</li>
+                                </ul>
+                                <h3>Alaska</h3>
+                                <p>With 83% of precincts reporting:</p>
+                                <ul>
+                                    <li>Donald Trump: 54%</li>
+                                    <li>Joe Biden: 46%</li>
+                                </ul>
+                                <h3>Arizona</h3>
+                                <p>With 91% of precincts reporting:</p>
+                                <ul>
+                                    <li>Joe Biden: 50%</li>
+                                    <li>Donald Trump: 48%</li>
+                                </ul>
+                                <h3>Arkansas</h3>
+                                <p>With 95% of precincts reporting:</p>
+                                <ul>
+                                    <li>Donald Trump: 64%</li>
+                                    <li>Joe Biden: 36%</li>
+                                </ul>
+                                <h3>California</h3>
+                                <p>With 87% of precincts reporting:</p>
+                                <ul>
+                                    <li>Joe Biden: 63%</li>
+                                    <li>Donald Trump: 37%</li>
+                                </ul>
+                                <p>And so on for each state.</p>
+                                <h2>What's Next?</h2>
+                                <p>With many states reporting record numbers of early voters and mail-in ballots, it may be several days or even weeks before we have a clear picture of the final election results. Stay tuned for more updates as they become available.</p>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<div class="container mt-5">
-    <h2>Welcome to the Presidential Press Conference</h2>
-    <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Login or Create Account In Order to Access Web Features.</p>
-    <p sec:authorize="hasRole('USER')">Text visible to user.</p>
-    <p sec:authorize="hasRole('ADMIN')">Text visible to admin.</p>
-    <p sec:authorize="isAuthenticated()">authenticated users only.</p><div sec:authorize="hasRole('ROLE_ANONYMOUS')">
-    <form th:action="@{|/login|}" method="get">
-    <p><button  th:text="'Log in'"></button></p>
-    </form>
-        <form th:action="@{|/register|}" method="get">
-    <p><button  th:text="'Register'"></button></p>
-        </form>
 </div>
+<footer>
+    <div class="footerlink">
+        <p class="lf">Copyright &copy; 2023 <a href="#">Press Conference</a> - All Rights Reserved</p>
 
-    <div sec:authorize="isAuthenticated()">
-        <p class="text-white">Logged in as: <span sec:authentication="name"></span></p>
-        <p class="text-white">Has role: <span sec:authentication="authorities"></span></p>
-
-
-
-        <form th:action="@{|/dashboard|}" method="get">
-        <p sec:authorize="hasAuthority('USER')"><button
-                                                   th:text="'User Dashboard'"></button></p>
-
-        </form>
-
-        <form th:action="@{|/admin/dashboard|}" method="get">
-        <p sec:authorize="hasAuthority('ADMIN')"><button
-                                                     th:text="'Admin Dashboard'"></button></p>
-        </form>
-
-        <form th:action="@{/logout}" method="get">
-        <button  >Log out</button>
-        </form>
+        <div style="clear:both;"></div>
     </div>
-</div>
-<!-- Link to Bootstrap JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</footer>
 
-<!-- Link to jQuery JavaScript -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Link to Popper JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
-<!-- Link to Fontawesome JavaScript -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<!-- Custom JavaScript -->
-<script>
-    // Show and hide password
-    $(document).ready(function () {
-        $('.toggle-password').on('click', function () {
-            $(this).toggleClass('fa-eye fa-eye-slash');
-            let input = $($(this).attr('toggle'));
-            if (input.attr('type') === 'password') {
-                input.attr('type', 'text');
-            } else {
-                input.attr('type', 'password');
-            }
-        });
-    });
-</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
