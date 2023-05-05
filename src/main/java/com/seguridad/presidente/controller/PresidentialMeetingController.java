@@ -127,7 +127,7 @@ public class PresidentialMeetingController {
         presidentialMeetingService.saveMeeting(presidentialMeeting);
 
         // send an email to the admin with the meeting details
-        String recipientAddress = "gmail.com";
+        String recipientAddress = "webtechmail6@gmail.com";
         String subject = "New meeting request";
         String message = String.format("Date: %s\nStart time: %s %s\nEnd time: %s %s\nAgenda: %s\nName: %s",
                 presidentialMeeting.getDate(),
