@@ -69,14 +69,16 @@ public class PresidentialMeetingController {
     }
 
     @PostMapping("/sendEmail")
-    public String sendEmail(@RequestParam String email, @RequestParam String message) {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(email);
-        mailMessage.setSubject("Meeting Request");
-        mailMessage.setText(message);
-        emailSender.send(mailMessage);
-        return "admin/dashboard";
-    }
+public String sendEmail(@RequestParam String email, @RequestParam String message, Model model) {
+    SimpleMailMessage mailMessage = new SimpleMailMessage();
+    mailMessage.setTo(email);
+    mailMessage.setSubject("Meeting Request");
+    mailMessage.setText(message);
+    emailSender.send(mailMessage);
+    model.addAttribute("successMessage", "Message sent successfully!");
+    return "admin/dashboard";
+}
+
 
     @GetMapping("/showNewMeetingForm")
     public String showNewMeetingForm(Model model) {
